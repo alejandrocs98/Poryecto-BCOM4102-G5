@@ -15,15 +15,10 @@
 # conda activate qiime2-2022.2
 module load qiime2/qiime2-2022.2
 
-## Beta Diversity
+## Beta diversity significance
 qiime diversity beta-group-significance \
   --i-distance-matrix diversity-metrics-results/weighted_unifrac_distance_matrix.qza \
   --m-metadata-file manifest_file.tsv \
   --m-metadata-column diet_type \
   --o-visualization diversity-metrics-results/weighted-unifrac-diet_type-significance.qzv \
   --p-pairwise
- 
-qiime emperor plot \
-  --i-pcoa diversity-metrics-results/weighted_unifrac_pcoa_results.qza \
-  --m-metadata-file manifest_file.tsv \
-  --o-visualization diversity-metrics-results/weighted-unifrac-emperor-diet_type.qzv

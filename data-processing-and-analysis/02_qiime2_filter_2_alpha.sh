@@ -87,7 +87,12 @@ qiime taxa barplot \
   --i-table filtered-sequences/filtered-table2.qza \
   --i-taxonomy taxonomy.qza \
   --m-metadata-file manifest_file.tsv \
-  --o-visualization taxa-bar-plots.qzv
+  --o-visualization taxa-bar-plots2.qzv
+
+  qiime feature-table summarize \
+  --i-table filtered-sequences/filtered-table2.qza \
+  --o-visualization filtered-sequences/filtered-table2.qzv \
+  --m-sample-metadata-file manifest_file.tsv
 
 # Phylogenetic Tree for phylogenetic diversity analysis
 qiime phylogeny align-to-tree-mafft-fasttree \
@@ -98,17 +103,12 @@ qiime phylogeny align-to-tree-mafft-fasttree \
   --o-rooted-tree rooted-tree.qza
 
 # Rarefaction analysis
-qiime feature-table summarize \
-  --i-table filtered-sequences/filtered-table2.qza \
-  --o-visualization filtered-sequences/filtered-table2.qzv \
-  --m-sample-metadata-file manifest_file.tsv
-
 qiime diversity alpha-rarefaction \
   --i-table  filtered-sequences/filtered-table2.qza \
   --o-visualization alpha-rarefaction.qzv \
   --p-max-depth 23300
 
-# Core metrics results
+# Core diversity metrics results
 qiime diversity core-metrics-phylogenetic \
   --i-phylogeny rooted-tree.qza \
   --i-table filtered-sequences/filtered-table2.qza \
@@ -116,7 +116,7 @@ qiime diversity core-metrics-phylogenetic \
   --m-metadata-file manifest_file.tsv \
   --output-dir core-metrics-results
 
-# Faith and evenness significance
+# Alpha diveristy significance
 qiime diversity alpha-group-significance \
   --i-alpha-diversity core-metrics-results/faith_pd_vector.qza \
   --m-metadata-file manifest_file.tsv \
@@ -126,25 +126,6 @@ qiime diversity alpha-group-significance \
   --i-alpha-diversity core-metrics-results/evenness_vector.qza \
   --m-metadata-file manifest_file.tsv \
   --o-visualization core-metrics-results/evenness-group-significance.qzv
-
-# Alpha and Beta diversity analysis
-qiime feature-table summarize \
-  --i-table filtered-sequences/filtered-table2.qza \
-  --o-visualization filtered-sequences/filtered-table2.qzv \
-  --m-sample-metadata-file manifest_file.tsv
- 
-qiime diversity core-metrics-phylogenetic \
-  --i-phylogeny rooted-tree.qza \
-  --i-table filtered-sequences/filtered-table2.qza \
-  --p-sampling-depth 882 \
-  --m-metadata-file manifest_file.tsv \
-  --output-dir diversity-metrics-results
- 
-## Alpha Diversity
-qiime diversity alpha-group-significance \
-  --i-alpha-diversity diversity-metrics-results/faith_pd_vector.qza \
-  --m-metadata-file manifest_file.tsv \
-  --o-visualization diversity-metrics-results/faith-pd-group-significance.qzv
  
 qiime diversity alpha-group-significance \
   --i-alpha-diversity diversity-metrics-results/shannon_vector.qza \
