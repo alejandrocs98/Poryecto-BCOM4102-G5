@@ -17,8 +17,30 @@ module load qiime2/qiime2-2022.2
 
 ## Beta diversity significance
 qiime diversity beta-group-significance \
-  --i-distance-matrix diversity-metrics-results/weighted_unifrac_distance_matrix.qza \
+  --i-distance-matrix core-metrics-results/weighted_unifrac_distance_matrix.qza \
   --m-metadata-file manifest_file.tsv \
   --m-metadata-column diet_type \
   --o-visualization diversity-metrics-results/weighted-unifrac-diet_type-significance.qzv \
   --p-pairwise
+
+qiime diversity beta-group-significance \
+  --i-distance-matrix core-metrics-results/weighted_unifrac_distance_matrix.qza \
+  --m-metadata-file manifest_file.tsv \
+  --m-metadata-column fruit_frequency \
+  --o-visualization diversity-metrics-results/weighted-unifrac-fruit_frequency-significance.qzv \
+  --p-pairwise
+
+qiime diversity beta-group-significance \
+  --i-distance-matrix core-metrics-results/weighted_unifrac_distance_matrix.qza \
+  --m-metadata-file manifest_file.tsv \
+  --m-metadata-column vegetable_frequency \
+  --o-visualization diversity-metrics-results/weighted-unifrac-vegetable_frequency-significance.qzv \
+  --p-pairwise
+
+qiime diversity beta-group-significance \
+  --i-distance-matrix core-metrics-results/weighted_unifrac_distance_matrix.qza \
+  --m-metadata-file manifest_file.tsv \
+  --m-metadata-column whole_grain_frequency \
+  --o-visualization diversity-metrics-results/weighted-unifrac-whole_grain_frequency-significance.qzv \
+  --p-pairwise
+
