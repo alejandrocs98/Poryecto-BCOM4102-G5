@@ -19,13 +19,13 @@ module load qiime2/qiime2-2022.2
 mkdir filtered-sequences 
 qiime feature-table filter-samples \
   --i-table table.qza \
-  --p-min-frequency 1 \
+  --p-min-frequency 10 \
   --o-filtered-table filtered-sequences/filtered-table.qza
 
 # Filter features with low abundance
 qiime feature-table filter-features \
   --i-table filtered-sequences/filtered-table.qza \
-  --p-min-frequency 1 \
+  --p-min-frequency 10 \
   --o-filtered-table filtered-sequences/feature-frequency-filtered-table.qza
 
 # Assign taxonomy
@@ -106,13 +106,13 @@ qiime phylogeny align-to-tree-mafft-fasttree \
 qiime diversity alpha-rarefaction \
   --i-table  filtered-sequences/filtered-table2.qza \
   --o-visualization alpha-rarefaction.qzv \
-  --p-max-depth 23300
+  --p-max-depth 10000
 
 # Core diversity metrics results
 qiime diversity core-metrics-phylogenetic \
   --i-phylogeny rooted-tree.qza \
   --i-table filtered-sequences/filtered-table2.qza \
-  --p-sampling-depth 882 \
+  --p-sampling-depth 10000 \
   --m-metadata-file manifest_file.tsv \
   --output-dir core-metrics-results
 
