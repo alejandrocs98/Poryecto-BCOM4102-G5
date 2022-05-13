@@ -15,7 +15,7 @@
 # conda activate qiime2-2021.11
 module load qiime2/qiime2-2021.11
 
-cp ../manifest_file.tsv .
+cp ../data-acquisition/manifest_file.tsv .
 
 # Import data and demultiplex sequences
 qiime tools import \
