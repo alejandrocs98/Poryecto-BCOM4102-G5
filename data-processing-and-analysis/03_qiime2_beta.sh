@@ -12,8 +12,8 @@
 #SBATCH -o 03_qiime2_beta.o
 
 # conda init bash
-# conda activate qiime2-2022.2
-module load qiime2/qiime2-2022.2
+# conda activate qiime2-2021.11
+module load qiime2/qiime2-2021.11
 
 ## Beta diversity significance
 qiime diversity beta-group-significance \

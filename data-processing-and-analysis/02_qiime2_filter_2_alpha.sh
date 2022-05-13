@@ -12,8 +12,8 @@
 #SBATCH -o 02_qiime2_filter_2_alpha.o
 
 # conda init bash
-# conda activate qiime2-2022.2
-module load qiime2/qiime2-2022.2
+# conda activate qiime2-2021.11
+module load qiime2/qiime2-2021.11
 
 # Filter feature table 
 mkdir filtered-sequences 
@@ -117,6 +117,7 @@ qiime diversity core-metrics-phylogenetic \
   --output-dir core-metrics-results
 
 # Alpha diveristy significance
+mkdir diversity-metrics-results
 qiime diversity alpha-group-significance \
   --i-alpha-diversity core-metrics-results/faith_pd_vector.qza \
   --m-metadata-file manifest_file.tsv \
@@ -128,6 +129,6 @@ qiime diversity alpha-group-significance \
   --o-visualization diversity-metrics-results/evenness-group-significance.qzv
  
 qiime diversity alpha-group-significance \
-  --i-alpha-diversity diversity-metrics-results/shannon_vector.qza \
+  --i-alpha-diversity core-metrics-results/shannon_vector.qza \
   --m-metadata-file manifest_file.tsv \
   --o-visualization diversity-metrics-results/shannon-group-significance.qzv

@@ -12,8 +12,8 @@
 #SBATCH -o 01_qiime2_import_2_sequence_table.o
 
 # conda init bash
-# conda activate qiime2-2022.2
-module load qiime2/qiime2-2022.2
+# conda activate qiime2-2021.11
+module load qiime2/qiime2-2021.11
 
 cp ../manifest_file.tsv .
 
