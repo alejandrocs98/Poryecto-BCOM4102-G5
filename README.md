@@ -2,4 +2,4 @@
 Repositorio con todos los códigos utilizados en el desarrollo del proyecto del Grupo 5 del curso de Ecología Microbiana y Herramientas de Análisis Bioinformático.  
 Integrantes del grupo: Alejandro Castellanos & Daniela Betancurt
 
-![](/home/acs98/Documents/Semestre-XII/Ecologia-microbiana-y-herramientas-de-analisis-bioinformatico/Proyecto/Presentacion)
+![Métodos](https://github.com/alejandrocs98/Proyecto-BCOM4102-G5/blob/main/Methods.png)
